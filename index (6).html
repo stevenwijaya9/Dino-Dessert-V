@@ -1,0 +1,2718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dino Dessert 🦕</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+    --pink:#ff4f9a;
+    --hot-pink:#ff1493;
+    --deep-pink:#d81b72;
+    --light-pink:#ffb6d9;
+    --soft-pink:#ffe4f1;
+    --pale-pink:#fff5fa;
+    --rose:#c2185b;
+    --dark:#8f1550;
+    --text:#71304f;
+    --white:#fff;
+    --shadow:0 20px 55px rgba(190,20,100,.18);
+}
+
+* {
+    box-sizing:border-box;
+}
+
+html {
+    scroll-behavior:smooth;
+}
+
+body {
+    margin:0;
+    font-family:"Fredoka",sans-serif;
+    color:var(--text);
+
+    background:
+        linear-gradient(
+            180deg,
+            #ff8fc4 0%,
+            #ffd5e8 42%,
+            #fff 100%
+        );
+
+    overflow-x:hidden;
+}
+
+/* ================= BACKGROUND ================= */
+
+#sky {
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    overflow:hidden;
+
+    background:
+        linear-gradient(
+            #ff8fc4,
+            #ffd9ea 65%,
+            #fff
+        );
+}
+
+.sun {
+    position:absolute;
+    width:170px;
+    height:170px;
+    border-radius:50%;
+    right:7%;
+    top:8%;
+
+    background:#fff1a8;
+
+    box-shadow:
+        0 0 90px #ffe1ec;
+}
+
+.cloud {
+    position:absolute;
+    background:#fff;
+    border-radius:100px;
+    opacity:.85;
+}
+
+.cloud::before,
+.cloud::after {
+    content:"";
+    position:absolute;
+    background:inherit;
+    border-radius:50%;
+}
+
+.cloud::before {
+    width:70px;
+    height:70px;
+    left:25px;
+    top:-34px;
+}
+
+.cloud::after {
+    width:95px;
+    height:95px;
+    right:18px;
+    top:-48px;
+}
+
+.c1 {
+    width:200px;
+    height:52px;
+    top:16%;
+    left:-250px;
+    animation:cloudMove 35s linear infinite;
+}
+
+.c2 {
+    width:260px;
+    height:60px;
+    top:47%;
+    left:-320px;
+    animation:cloudMove 48s linear infinite 8s;
+}
+
+.c3 {
+    width:180px;
+    height:45px;
+    top:72%;
+    left:-250px;
+    animation:cloudMove 42s linear infinite 16s;
+}
+
+@keyframes cloudMove {
+    to {
+        transform:translateX(calc(100vw + 600px));
+    }
+}
+
+/* ================= NAVBAR ================= */
+
+nav {
+    position:fixed;
+    z-index:50;
+    top:14px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:min(1150px,94%);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    padding:11px 15px 11px 20px;
+
+    background:rgba(255,255,255,.88);
+    backdrop-filter:blur(16px);
+
+    border:2px solid rgba(255,255,255,.9);
+    border-radius:24px;
+
+    box-shadow:
+        0 12px 35px rgba(190,20,100,.16);
+}
+
+.logo {
+    font:800 27px "Baloo 2";
+    color:var(--deep-pink);
+    text-decoration:none;
+}
+
+.logo span {
+    color:var(--hot-pink);
+}
+
+.nav-links {
+    display:flex;
+    gap:20px;
+    font-weight:600;
+}
+
+.nav-links a {
+    color:var(--text);
+    text-decoration:none;
+    transition:.25s;
+}
+
+.nav-links a:hover {
+    color:var(--hot-pink);
+}
+
+.cart-button {
+    border:0;
+    border-radius:16px;
+    padding:10px 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--deep-pink),
+            var(--hot-pink)
+        );
+
+    color:white;
+    cursor:pointer;
+    font-weight:700;
+
+    box-shadow:
+        0 7px 18px rgba(216,27,114,.25);
+}
+
+.badge-count {
+    display:inline-flex;
+    min-width:21px;
+    height:21px;
+    border-radius:50%;
+
+    background:white;
+    color:var(--hot-pink);
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:12px;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height:100vh;
+    padding:150px 7% 90px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+    position:relative;
+}
+
+.hero-content {
+    max-width:900px;
+    margin:auto;
+}
+
+.badge {
+    display:inline-block;
+
+    background:white;
+    border-radius:30px;
+    padding:10px 18px;
+
+    color:var(--hot-pink);
+
+    font-weight:700;
+
+    box-shadow:var(--shadow);
+
+    animation:softFloat 4s ease-in-out infinite;
+}
+
+.hero h1 {
+    font:800 clamp(60px,11vw,125px)/.78 "Baloo 2";
+
+    color:white;
+
+    margin:28px 0;
+
+    text-shadow:
+        0 8px 0 #d81b72,
+        0 18px 28px rgba(190,20,100,.28);
+
+    letter-spacing:-2px;
+
+    animation:titleFloat 4s ease-in-out infinite;
+}
+
+.hero h1 span {
+    color:#fff19b;
+
+    text-shadow:
+        0 6px 0 #d81b72,
+        0 15px 25px rgba(190,20,100,.2);
+}
+
+.hero p {
+    max-width:720px;
+    margin:0 auto;
+
+    font-size:20px;
+    line-height:1.7;
+
+    color:#702b4b;
+}
+
+.actions {
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-top:30px;
+}
+
+.btn {
+    border:0;
+    border-radius:18px;
+    padding:14px 23px;
+
+    font-weight:700;
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:
+        0 10px 22px rgba(190,20,100,.14);
+
+    text-decoration:none;
+}
+
+.btn:hover {
+    transform:translateY(-4px) scale(1.02);
+}
+
+.primary {
+    background:
+        linear-gradient(
+            135deg,
+            #d81b72,
+            #ff1493
+        );
+
+    color:white;
+}
+
+.light {
+    background:white;
+    color:var(--deep-pink);
+}
+
+.hero-dino {
+    font-size:85px;
+    margin-top:35px;
+
+    animation:
+        dinoFloat 3.5s ease-in-out infinite;
+}
+
+@keyframes softFloat {
+    50% {
+        transform:translateY(-7px);
+    }
+}
+
+@keyframes titleFloat {
+    50% {
+        transform:translateY(-5px);
+    }
+}
+
+@keyframes dinoFloat {
+    0%,100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-15px)
+            rotate(3deg);
+    }
+}
+
+/* ================= SECTION ================= */
+
+section {
+    padding:85px 6%;
+}
+
+.title {
+    text-align:center;
+
+    font:
+        800
+        clamp(40px,6vw,66px)
+        "Baloo 2";
+
+    color:var(--deep-pink);
+
+    margin:0 0 8px;
+}
+
+.subtitle {
+    text-align:center;
+    max-width:680px;
+
+    margin:0 auto 42px;
+
+    font-size:18px;
+    color:#71304f;
+}
+
+/* ================= MENU ================= */
+
+.menu-grid {
+    max-width:1150px;
+    margin:auto;
+
+    display:grid;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:20px;
+}
+
+.card {
+    background:
+        rgba(255,255,255,.96);
+
+    border:
+        2px solid white;
+
+    border-radius:28px;
+
+    padding:20px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+}
+
+.card:hover {
+    transform:
+        translateY(-10px)
+        rotate(-1deg);
+
+    box-shadow:
+        0 25px 55px
+        rgba(190,20,100,.25);
+}
+
+.product-icon {
+    font-size:66px;
+
+    animation:
+        iconFloat 3s ease-in-out infinite;
+}
+
+@keyframes iconFloat {
+    50% {
+        transform:translateY(-6px);
+    }
+}
+
+.card h3 {
+    font:
+        700
+        30px
+        "Baloo 2";
+
+    margin:4px;
+
+    color:var(--deep-pink);
+}
+
+.card p {
+    min-height:48px;
+    color:#85506a;
+}
+
+.variant {
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin:14px 0;
+}
+
+.variant button {
+    border:
+        1px solid #ffacd1;
+
+    background:
+        #fff0f7;
+
+    color:var(--deep-pink);
+
+    border-radius:12px;
+
+    padding:7px 10px;
+
+    cursor:pointer;
+}
+
+.variant button.active {
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #d81b72
+        );
+
+    color:white;
+}
+
+.price {
+    font-size:25px;
+    font-weight:800;
+
+    color:var(--hot-pink);
+
+    margin-bottom:12px;
+}
+
+.add-button {
+    width:100%;
+
+    border:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff4f9a,
+            #ff1493
+        );
+
+    color:white;
+
+    padding:11px;
+
+    border-radius:15px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.add-button:hover {
+    transform:scale(1.03);
+}
+
+/* ================= CHOCOMILO ================= */
+
+.choco {
+    max-width:1100px;
+    margin:auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9c1455,
+            #ff3f96
+        );
+
+    color:white;
+
+    border-radius:42px;
+
+    padding:45px;
+
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    align-items:center;
+
+    box-shadow:
+        0 25px 65px
+        rgba(190,20,100,.3);
+}
+
+.choco h2 {
+    font:
+        800
+        60px/1
+        "Baloo 2";
+
+    margin:0;
+}
+
+.choco .price {
+    color:white;
+    font-size:36px;
+}
+
+.drink {
+    font-size:120px;
+    text-align:center;
+
+    animation:
+        bob 3s ease-in-out infinite;
+}
+
+@keyframes bob {
+    50% {
+        transform:
+            translateY(-12px)
+            rotate(3deg);
+    }
+}
+
+/* ================= FEATURES ================= */
+
+.features {
+    max-width:1100px;
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:16px;
+}
+
+.feature {
+    background:
+        rgba(255,255,255,.9);
+
+    padding:23px;
+
+    border-radius:23px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+
+    border:
+        2px solid #fff;
+}
+
+.feature:hover {
+    transform:translateY(-7px);
+
+    box-shadow:
+        0 22px 45px
+        rgba(190,20,100,.22);
+}
+
+.feature b {
+    display:block;
+
+    font-size:20px;
+
+    margin:7px 0;
+
+    color:var(--deep-pink);
+}
+
+/* ================= ORDER ================= */
+
+.order-box {
+    max-width:1100px;
+    margin:auto;
+
+    background:white;
+
+    padding:45px;
+
+    border-radius:38px;
+
+    box-shadow:var(--shadow);
+
+    border:
+        3px solid #ffe0ed;
+}
+
+.order-box h2 {
+    font:
+        800
+        48px
+        "Baloo 2";
+
+    color:var(--deep-pink);
+
+    margin:0;
+}
+
+.form-grid {
+    display:grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap:16px;
+}
+
+.field {
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.field.full {
+    grid-column:1/-1;
+}
+
+.field input,
+.field textarea {
+    border:
+        2px solid #ffc1dc;
+
+    border-radius:14px;
+
+    padding:12px;
+
+    outline:none;
+
+    background:#fff8fc;
+
+    font-family:inherit;
+}
+
+.field input:focus,
+.field textarea:focus {
+    border-color:#ff4f9a;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(255,79,154,.12);
+}
+
+.field textarea {
+    min-height:90px;
+    resize:vertical;
+}
+
+.send {
+    margin-top:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #d81b72
+        );
+
+    color:white;
+
+    border:0;
+
+    border-radius:16px;
+
+    padding:15px 22px;
+
+    font-weight:800;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(216,27,114,.25);
+}
+
+/* ================= CART ================= */
+
+#cart {
+    position:fixed;
+    z-index:100;
+
+    right:0;
+    top:0;
+
+    height:100vh;
+
+    width:min(410px,94vw);
+
+    background:white;
+
+    box-shadow:
+        -20px 0 60px
+        rgba(190,20,100,.2);
+
+    transform:translateX(105%);
+
+    transition:.35s;
+
+    padding:25px;
+
+    display:flex;
+    flex-direction:column;
+}
+
+#cart.open {
+    transform:translateX(0);
+}
+
+.cart-header {
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.cart-header h2 {
+    font:
+        800
+        34px
+        "Baloo 2";
+
+    margin:0;
+
+    color:var(--deep-pink);
+}
+
+#closeCart {
+    border:0;
+
+    background:#fff0f7;
+
+    color:var(--deep-pink);
+
+    border-radius:12px;
+
+    padding:8px;
+
+    cursor:pointer;
+}
+
+#cartItems {
+    overflow:auto;
+    flex:1;
+    margin:15px 0;
+}
+
+.cart-item {
+    display:grid;
+
+    grid-template-columns:
+        1fr auto;
+
+    gap:8px;
+
+    padding:14px 0;
+
+    border-bottom:
+        1px solid #ffe0ed;
+}
+
+.cart-item small {
+    display:block;
+}
+
+.qty {
+    border:0;
+
+    background:#ffe7f2;
+
+    color:var(--deep-pink);
+
+    border-radius:8px;
+
+    margin:2px;
+
+    padding:5px 8px;
+
+    cursor:pointer;
+}
+
+.total {
+    font-size:22px;
+
+    font-weight:800;
+
+    color:var(--deep-pink);
+
+    padding:12px 0;
+}
+
+.checkout {
+    border:0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff1493,
+            #d81b72
+        );
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:15px;
+
+    font-weight:800;
+
+    cursor:pointer;
+}
+
+/* ================= WHATSAPP ================= */
+
+.whatsapp-float {
+    position:fixed;
+
+    left:18px;
+    bottom:18px;
+
+    z-index:90;
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#25D366;
+
+    color:white;
+
+    font-size:28px;
+
+    text-decoration:none;
+
+    box-shadow:
+        0 10px 28px
+        rgba(0,0,0,.22);
+
+    animation:
+        waPulse 2s infinite;
+}
+
+@keyframes waPulse {
+    0%,100% {
+        box-shadow:
+            0 0 0 0
+            rgba(37,211,102,.35),
+            0 10px 28px
+            rgba(0,0,0,.22);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 13px
+            rgba(37,211,102,0),
+            0 10px 28px
+            rgba(0,0,0,.22);
+    }
+}
+
+/* ================= MUSIC ================= */
+
+#sound {
+    position:fixed;
+
+    right:18px;
+    bottom:18px;
+
+    z-index:90;
+
+    border:0;
+
+    background:white;
+
+    color:var(--deep-pink);
+
+    width:54px;
+    height:54px;
+
+    border-radius:50%;
+
+    box-shadow:var(--shadow);
+
+    cursor:pointer;
+
+    font-size:20px;
+}
+
+#sound.music-active {
+    animation:
+        musicPulse 1.5s infinite;
+}
+
+@keyframes musicPulse {
+    50% {
+        transform:scale(1.12);
+    }
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    background:
+        linear-gradient(
+            135deg,
+            #9c1455,
+            #d81b72
+        );
+
+    color:white;
+
+    text-align:center;
+
+    padding:28px;
+}
+
+/* ================= TOAST ================= */
+
+.toast {
+    position:fixed;
+
+    z-index:200;
+
+    bottom:22px;
+    left:50%;
+
+    transform:
+        translate(-50%,120px);
+
+    background:
+        linear-gradient(
+            135deg,
+            #9c1455,
+            #ff1493
+        );
+
+    color:white;
+
+    padding:13px 20px;
+
+    border-radius:16px;
+
+    box-shadow:var(--shadow);
+
+    transition:.3s;
+}
+
+.toast.show {
+    transform:
+        translate(-50%,0);
+}
+
+/* ================= REVEAL ================= */
+
+.reveal {
+    opacity:0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity .8s,
+        transform .8s;
+}
+
+.reveal.show {
+    opacity:1;
+
+    transform:none;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px) {
+
+    .hero {
+        padding-top:140px;
+    }
+
+    .menu-grid {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .features {
+        grid-template-columns:
+            repeat(2,1fr);
+    }
+
+    .choco {
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .drink {
+        font-size:90px;
+    }
+}
+
+@media(max-width:560px) {
+
+    .nav-links {
+        display:none;
+    }
+
+    .menu-grid,
+    .features {
+        grid-template-columns:1fr;
+    }
+
+    .form-grid {
+        grid-template-columns:1fr;
+    }
+
+    .field.full {
+        grid-column:auto;
+    }
+
+    section {
+        padding:65px 5%;
+    }
+
+    .hero {
+        padding:130px 5% 70px;
+    }
+
+    .hero h1 {
+        font-size:68px;
+    }
+
+    .order-box {
+        padding:25px;
+    }
+
+    .choco {
+        padding:30px;
+    }
+
+    .choco h2 {
+        font-size:45px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="sky">
+
+    <div class="sun"></div>
+
+    <div class="cloud c1"></div>
+    <div class="cloud c2"></div>
+    <div class="cloud c3"></div>
+
+</div>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav>
+
+    <a href="#home" class="logo">
+        Dino <span>🍰</span> Dessert
+    </a>
+
+    <div class="nav-links">
+
+        <a href="#menu">
+            Menu
+        </a>
+
+        <a href="#keunggulan">
+            Why Us
+        </a>
+
+        <a href="#pesan">
+            Order
+        </a>
+
+    </div>
+
+    <button
+        class="cart-button"
+        id="openCart">
+
+        🛒 Cart
+
+        <span
+            class="badge-count"
+            id="count">
+
+            0
+
+        </span>
+
+    </button>
+
+</nav>
+
+
+<!-- ================= HERO ================= -->
+
+<main id="home" class="hero">
+
+    <div class="hero-content reveal">
+
+        <span class="badge">
+            ☁️ Small dessert, big happiness!
+        </span>
+
+        <h1>
+
+            SWEETNESS<br>
+
+            <span>MAKES YOU HAPPY!</span>
+
+        </h1>
+
+        <p>
+
+            Homemade desserts made
+            to brighten your day.
+            Choose your favorite flavor
+            and order easily through WhatsApp.
+
+        </p>
+
+        <div class="actions">
+
+            <a
+                href="#menu"
+                class="btn primary">
+
+                🍮 Explore Menu
+
+            </a>
+
+
+            <a
+                href="https://wa.me/62895410052002?text=Hello%20Steven%20%F0%9F%A6%95%2C%20I%20would%20like%20to%20order%20Dino%20Dessert."
+                target="_blank"
+                rel="noopener"
+                class="btn light">
+
+                💬 Order Now
+
+            </a>
+
+        </div>
+
+        <div class="hero-dino">
+            🦕🍰
+        </div>
+
+    </div>
+
+</main>
+
+
+<!-- ================= MENU ================= -->
+
+<section id="menu">
+
+    <h2 class="title reveal">
+        Favorite Menu 🦕
+    </h2>
+
+    <p class="subtitle reveal">
+
+        Choose your favorite dessert,
+        select a size, and add it
+        to your cart.
+
+    </p>
+
+
+    <div class="menu-grid">
+
+
+        <!-- CHOCOLATE -->
+
+        <article
+            class="card reveal"
+            data-name="Chocolate Dessert Box"
+            data-prices='{"Box":20000,"Round":15000}'>
+
+            <div class="product-icon">
+                🍫
+            </div>
+
+            <h3>
+                Chocolate
+            </h3>
+
+            <p>
+                Soft, creamy,
+                and full of chocolate!
+            </p>
+
+            <div class="variant">
+
+                <button
+                    class="active"
+                    data-size="Box">
+
+                    Box
+
+                </button>
+
+                <button
+                    data-size="Round">
+
+                    Round
+
+                </button>
+
+            </div>
+
+            <div class="price">
+                Rp 20,000
+            </div>
+
+            <button
+                class="add-button">
+
+                + Add to Cart
+
+            </button>
+
+        </article>
+
+
+        <!-- OREO -->
+
+        <article
+            class="card reveal"
+            data-name="Oreo Dessert Box"
+            data-prices='{"Box":20000,"Round":15000}'>
+
+            <div class="product-icon">
+                🍪
+            </div>
+
+            <h3>
+                Oreo
+            </h3>
+
+            <p>
+                Creamy goodness
+                with a delicious crunch.
+            </p>
+
+            <div class="variant">
+
+                <button
+                    class="active"
+                    data-size="Box">
+
+                    Box
+
+                </button>
+
+                <button
+                    data-size="Round">
+
+                    Round
+
+                </button>
+
+            </div>
+
+            <div class="price">
+                Rp 20,000
+            </div>
+
+            <button
+                class="add-button">
+
+                + Add to Cart
+
+            </button>
+
+        </article>
+
+
+        <!-- REGAL -->
+
+        <article
+            class="card reveal"
+            data-name="Regal Biscuit Dessert Box"
+            data-prices='{"Box":20000,"Round":15000}'>
+
+            <div class="product-icon">
+                🍪
+            </div>
+
+            <h3>
+                Regal Biscuit
+            </h3>
+
+            <p>
+                A classic flavor
+                that never gets old.
+            </p>
+
+            <div class="variant">
+
+                <button
+                    class="active"
+                    data-size="Box">
+
+                    Box
+
+                </button>
+
+                <button
+                    data-size="Round">
+
+                    Round
+
+                </button>
+
+            </div>
+
+            <div class="price">
+                Rp 20,000
+            </div>
+
+            <button
+                class="add-button">
+
+                + Add to Cart
+
+            </button>
+
+        </article>
+
+
+        <!-- CHOCOMILODINO -->
+
+        <article class="card reveal">
+
+            <div class="product-icon">
+                🥤
+            </div>
+
+            <h3>
+                Chocomilodino
+            </h3>
+
+            <p>
+                Smooth and delicious
+                chocolate malt drink.
+            </p>
+
+            <div
+                class="price"
+                style="margin:20px 0">
+
+                Rp 10,000
+
+            </div>
+
+            <button
+                class="add-button"
+                id="addDrink">
+
+                + Add to Cart
+
+            </button>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= CHOCOMILODINO ================= -->
+
+<section>
+
+    <div class="choco reveal">
+
+        <div>
+
+            <h2>
+                Chocomilodino 🥤
+            </h2>
+
+            <p>
+                A smooth chocolate malt drink
+                with a sweet and creamy flavor,
+                perfect for any time of the day.
+            </p>
+
+            <div class="price">
+                Rp 10,000
+            </div>
+
+            <button
+                class="btn light"
+                id="addDrink2">
+
+                + Add to Cart
+
+            </button>
+
+        </div>
+
+        <div class="drink">
+            🥤
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section id="keunggulan">
+
+    <h2 class="title reveal">
+        Why Dino Dessert? 💗
+    </h2>
+
+    <p class="subtitle reveal">
+
+        Good Food, Good Mood —
+        made for simple moments
+        that deserve something sweet.
+
+    </p>
+
+
+    <div class="features">
+
+
+        <div class="feature reveal">
+
+            ✨
+
+            <b>
+                Premium Ingredients
+            </b>
+
+            Made with care
+            and attention to flavor.
+
+        </div>
+
+
+        <div class="feature reveal">
+
+            👑
+
+            <b>
+                Authentic Taste
+            </b>
+
+            Familiar flavors
+            everyone can enjoy.
+
+        </div>
+
+
+        <div class="feature reveal">
+
+            🛡️
+
+            <b>
+                Homemade
+            </b>
+
+            Carefully prepared
+            with quality in mind.
+
+        </div>
+
+
+        <div class="feature reveal">
+
+            🎁
+
+            <b>
+                Perfect for Every Moment
+            </b>
+
+            Great for school,
+            family, friends,
+            and special occasions.
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= ORDER ================= -->
+
+<section id="pesan">
+
+    <div class="order-box reveal">
+
+        <h2>
+            Order via WhatsApp 💬
+        </h2>
+
+        <p>
+
+            Enter your name and notes.
+            Your order will automatically
+            be prepared based on your cart.
+
+        </p>
+
+
+        <div class="form-grid">
+
+
+            <label class="field">
+
+                <b>
+                    Name
+                </b>
+
+                <input
+                    id="customerName"
+                    type="text"
+                    placeholder="Your name">
+
+            </label>
+
+
+            <label class="field">
+
+                <b>
+                    WhatsApp Contact
+                </b>
+
+                <input
+                    type="text"
+                    value="Steven — 0895410052002"
+                    readonly>
+
+            </label>
+
+
+            <label class="field full">
+
+                <b>
+                    Note / Address
+                </b>
+
+                <textarea
+                    id="note"
+                    placeholder="Example: Please deliver to school at 12:00..."></textarea>
+
+            </label>
+
+
+        </div>
+
+
+        <button
+            class="send"
+            id="sendOrder">
+
+            🟢 Send Order to Steven
+
+        </button>
+
+
+        <p
+            style="
+            margin:12px 0 0;
+            color:#8a5b70;
+            font-size:14px;
+            ">
+
+            Steven's WhatsApp will open
+            with your order message already
+            filled in. Press <b>Send</b>
+            in WhatsApp to complete your order.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    © 2026 Dino Dessert
+    • Sweet Things, Happy People 💗
+
+</footer>
+
+
+<!-- ================= CART ================= -->
+
+<aside id="cart">
+
+    <div class="cart-header">
+
+        <h2>
+            Your Cart 🛒
+        </h2>
+
+        <button id="closeCart">
+            ✕
+        </button>
+
+    </div>
+
+
+    <div id="cartItems">
+
+        <p>
+            Your cart is empty.
+            Let's pick some dessert! 🍰
+        </p>
+
+    </div>
+
+
+    <div class="total">
+
+        Total:
+        <span id="total">
+            Rp 0
+        </span>
+
+    </div>
+
+
+    <button
+        class="checkout"
+        id="checkout">
+
+        💬 Continue to WhatsApp
+
+    </button>
+
+</aside>
+
+
+<!-- ================= WHATSAPP ================= -->
+
+<a
+    class="whatsapp-float"
+    href="https://wa.me/62895410052002?text=Hello%20Steven%20%F0%9F%A6%95%F0%9F%92%97%2C%20I%20would%20like%20to%20order%20Dino%20Dessert."
+    target="_blank"
+    rel="noopener"
+    title="Chat Steven on WhatsApp">
+
+    💬
+
+</a>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast">
+    Added to cart! 💗
+</div>
+
+
+<!-- ================= MUSIC ================= -->
+
+<button
+    id="sound"
+    title="Turn music on">
+
+    🔇
+
+</button>
+
+
+<script>
+
+/* ==================================================
+   STEVEN WHATSAPP NUMBER
+================================================== */
+
+const STEVEN_NUMBER =
+    "62895410052002";
+
+
+/* ==================================================
+   CART
+================================================== */
+
+const cart = [];
+
+
+function rupiah(number) {
+
+    return new Intl.NumberFormat(
+        "id-ID",
+        {
+            style:"currency",
+            currency:"IDR",
+            maximumFractionDigits:0
+        }
+    ).format(number);
+
+}
+
+
+function notification(text) {
+
+    const toast =
+        document.getElementById("toast");
+
+    toast.textContent = text;
+
+    toast.classList.add("show");
+
+    setTimeout(() => {
+
+        toast.classList.remove("show");
+
+    },1700);
+
+}
+
+
+/* ==================================================
+   UPDATE CART
+================================================== */
+
+function updateCart() {
+
+    let total = 0;
+    let count = 0;
+
+    const cartItems =
+        document.getElementById(
+            "cartItems"
+        );
+
+
+    if(cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+            <p>
+                Your cart is empty.
+                Let's pick some dessert! 🍰
+            </p>
+
+        `;
+
+    } else {
+
+        cartItems.innerHTML =
+            cart.map((item,index) => {
+
+                total +=
+                    item.price *
+                    item.qty;
+
+                count +=
+                    item.qty;
+
+
+                return `
+
+                    <div
+                        class="cart-item">
+
+                        <div>
+
+                            <b>
+                                ${item.name}
+                            </b>
+
+                            <small>
+
+                                ${item.size || ""}
+
+                                ${
+                                    item.size
+                                    ? " • "
+                                    : ""
+                                }
+
+                                ${rupiah(
+                                    item.price
+                                )}
+
+                            </small>
+
+                        </div>
+
+
+                        <div>
+
+                            <button
+                                class="qty"
+                                onclick="
+                                changeQty(
+                                    ${index},
+                                    -1
+                                )">
+
+                                −
+
+                            </button>
+
+
+                            ${item.qty}
+
+
+                            <button
+                                class="qty"
+                                onclick="
+                                changeQty(
+                                    ${index},
+                                    1
+                                )">
+
+                                +
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                `;
+
+            }).join("");
+
+    }
+
+
+    document
+        .getElementById("total")
+        .textContent =
+        rupiah(total);
+
+
+    document
+        .getElementById("count")
+        .textContent =
+        count;
+
+}
+
+
+window.changeQty =
+function(index,amount) {
+
+    cart[index].qty += amount;
+
+
+    if(cart[index].qty <= 0) {
+
+        cart.splice(
+            index,
+            1
+        );
+
+    }
+
+
+    updateCart();
+
+};
+
+
+/* ==================================================
+   PRODUCTS
+================================================== */
+
+document
+.querySelectorAll(
+    ".card[data-name]"
+)
+.forEach(card => {
+
+    const priceElement =
+        card.querySelector(
+            ".price"
+        );
+
+
+    card
+    .querySelectorAll(
+        ".variant button"
+    )
+    .forEach(button => {
+
+        button.onclick = () => {
+
+            card
+            .querySelectorAll(
+                ".variant button"
+            )
+            .forEach(btn => {
+
+                btn.classList.remove(
+                    "active"
+                );
+
+            });
+
+
+            button.classList.add(
+                "active"
+            );
+
+
+            const prices =
+                JSON.parse(
+                    card.dataset.prices
+                );
+
+
+            priceElement.textContent =
+                rupiah(
+                    prices[
+                        button.dataset.size
+                    ]
+                );
+
+        };
+
+    });
+
+
+    card
+    .querySelector(
+        ".add-button"
+    )
+    .onclick = () => {
+
+        const selected =
+            card.querySelector(
+                ".variant .active"
+            );
+
+
+        const size =
+            selected.dataset.size;
+
+
+        const prices =
+            JSON.parse(
+                card.dataset.prices
+            );
+
+
+        const price =
+            prices[size];
+
+
+        const existing =
+            cart.find(
+                item =>
+                    item.name ===
+                        card.dataset.name
+                    &&
+                    item.size ===
+                        size
+            );
+
+
+        if(existing) {
+
+            existing.qty++;
+
+        } else {
+
+            cart.push({
+
+                name:
+                    card.dataset.name,
+
+                size:
+                    size,
+
+                price:
+                    price,
+
+                qty:
+                    1
+
+            });
+
+        }
+
+
+        updateCart();
+
+
+        notification(
+            "Dessert added to cart! 🍰"
+        );
+
+    };
+
+});
+
+
+/* ==================================================
+   CHOCOMILODINO
+================================================== */
+
+function addChocomilo() {
+
+    const existing =
+        cart.find(
+            item =>
+                item.name ===
+                "Chocomilodino"
+        );
+
+
+    if(existing) {
+
+        existing.qty++;
+
+    } else {
+
+        cart.push({
+
+            name:
+                "Chocomilodino",
+
+            size:
+                "",
+
+            price:
+                10000,
+
+            qty:
+                1
+
+        });
+
+    }
+
+
+    updateCart();
+
+
+    notification(
+        "Chocomilodino added! 🥤"
+    );
+
+}
+
+
+document
+.getElementById(
+    "addDrink"
+)
+.onclick =
+    addChocomilo;
+
+
+document
+.getElementById(
+    "addDrink2"
+)
+.onclick =
+    addChocomilo;
+
+
+/* ==================================================
+   CART OPEN / CLOSE
+================================================== */
+
+document
+.getElementById(
+    "openCart"
+)
+.onclick = () => {
+
+    document
+    .getElementById(
+        "cart"
+    )
+    .classList.add(
+        "open"
+    );
+
+};
+
+
+document
+.getElementById(
+    "closeCart"
+)
+.onclick = () => {
+
+    document
+    .getElementById(
+        "cart"
+    )
+    .classList.remove(
+        "open"
+    );
+
+};
+
+
+/* ==================================================
+   CREATE ORDER MESSAGE
+================================================== */
+
+function createMessage() {
+
+    if(cart.length === 0) {
+
+        notification(
+            "Your cart is empty! 😄"
+        );
+
+        return null;
+
+    }
+
+
+    const customerName =
+        document
+        .getElementById(
+            "customerName"
+        )
+        .value
+        .trim()
+        ||
+        "Customer";
+
+
+    const note =
+        document
+        .getElementById(
+            "note"
+        )
+        .value
+        .trim()
+        ||
+        "-";
+
+
+    const orderLines =
+        cart.map(item => {
+
+            return (
+
+                "• " +
+
+                item.name +
+
+                (
+                    item.size
+                    ?
+                    " (" +
+                    item.size +
+                    ")"
+                    :
+                    ""
+                ) +
+
+                " x" +
+
+                item.qty +
+
+                " = " +
+
+                rupiah(
+                    item.price *
+                    item.qty
+                )
+
+            );
+
+        }).join("\n");
+
+
+    const total =
+        cart.reduce(
+            (sum,item) =>
+                sum +
+                item.price *
+                item.qty,
+            0
+        );
+
+
+    return `
+
+Hello Steven! 🦕💗
+
+My name is ${customerName}.
+
+I would like to order:
+
+${orderLines}
+
+━━━━━━━━━━━━━━
+TOTAL:
+${rupiah(total)}
+━━━━━━━━━━━━━━
+
+Note / Address:
+${note}
+
+Please process my order.
+Thank you! 💗
+
+`;
+
+}
+
+
+/* ==================================================
+   CHECKOUT
+================================================== */
+
+document
+.getElementById(
+    "checkout"
+)
+.onclick = () => {
+
+    const message =
+        createMessage();
+
+
+    if(!message) {
+        return;
+    }
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        STEVEN_NUMBER +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+};
+
+
+/* ==================================================
+   SEND ORDER
+================================================== */
+
+document
+.getElementById(
+    "sendOrder"
+)
+.onclick = () => {
+
+    const message =
+        createMessage();
+
+
+    if(!message) {
+        return;
+    }
+
+
+    const whatsappURL =
+        "https://wa.me/" +
+        STEVEN_NUMBER +
+        "?text=" +
+        encodeURIComponent(
+            message
+        );
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+};
+
+
+/* ==================================================
+   SCROLL ANIMATION
+================================================== */
+
+const observer =
+new IntersectionObserver(
+    entries => {
+
+        entries.forEach(entry => {
+
+            if(
+                entry.isIntersecting
+            ) {
+
+                entry.target
+                    .classList
+                    .add("show");
+
+            }
+
+        });
+
+    },
+    {
+        threshold:.1
+    }
+);
+
+
+document
+.querySelectorAll(
+    ".reveal"
+)
+.forEach(element =>
+    observer.observe(element)
+);
+
+
+/* ==================================================
+   SOFT MUSIC
+================================================== */
+
+let audioContext = null;
+let masterGain = null;
+let musicTimer = null;
+let musicOn = false;
+let musicStep = 0;
+
+
+const chords = [
+
+    [
+        261.63,
+        329.63,
+        392.00
+    ],
+
+    [
+        220.00,
+        261.63,
+        329.63
+    ],
+
+    [
+        246.94,
+        293.66,
+        369.99
+    ],
+
+    [
+        196.00,
+        246.94,
+        293.66
+    ]
+
+];
+
+
+const melody = [
+
+    523.25,
+    587.33,
+    659.25,
+    587.33,
+
+    523.25,
+    493.88,
+    440.00,
+    493.88,
+
+    523.25,
+    659.25,
+    783.99,
+    659.25,
+
+    587.33,
+    523.25,
+    493.88,
+    440.00
+
+];
+
+
+function playSoftNote(
+    frequency,
+    duration,
+    volume
+) {
+
+    const oscillator =
+        audioContext
+        .createOscillator();
+
+
+    const gain =
+        audioContext
+        .createGain();
+
+
+    oscillator.type =
+        "sine";
+
+
+    oscillator.frequency.value =
+        frequency;
+
+
+    gain.gain.setValueAtTime(
+        0,
+        audioContext.currentTime
+    );
+
+
+    gain.gain.linearRampToValueAtTime(
+        volume,
+        audioContext.currentTime +
+        .08
+    );
+
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        audioContext.currentTime +
+        duration
+    );
+
+
+    oscillator.connect(gain);
+
+    gain.connect(masterGain);
+
+    oscillator.start();
+
+
+    oscillator.stop(
+        audioContext.currentTime +
+        duration +
+        .05
+    );
+
+}
+
+
+function musicTick() {
+
+    if(
+        !musicOn ||
+        !audioContext
+    ) {
+        return;
+    }
+
+
+    const chordIndex =
+        Math.floor(
+            musicStep / 4
+        )
+        %
+        chords.length;
+
+
+    chords[chordIndex]
+    .forEach(note => {
+
+        playSoftNote(
+            note,
+            1.7,
+            .025
+        );
+
+    });
+
+
+    const melodyNote =
+        melody[
+            musicStep %
+            melody.length
+        ];
+
+
+    playSoftNote(
+        melodyNote,
+        .8,
+        .045
+    );
+
+
+    if(
+        musicStep % 4 === 3
+    ) {
+
+        playSoftNote(
+            melodyNote * 2,
+            .45,
+            .018
+        );
+
+    }
+
+
+    musicStep++;
+
+}
+
+
+document
+.getElementById(
+    "sound"
+)
+.onclick =
+async () => {
+
+    const button =
+        document.getElementById(
+            "sound"
+        );
+
+
+    musicOn =
+        !musicOn;
+
+
+    if(musicOn) {
+
+        if(!audioContext) {
+
+            audioContext =
+                new (
+                    window.AudioContext ||
+                    window.webkitAudioContext
+                )();
+
+
+            masterGain =
+                audioContext
+                .createGain();
+
+
+            masterGain.gain.value =
+                .20;
+
+
+            masterGain.connect(
+                audioContext.destination
+            );
+
+        }
+
+
+        await audioContext.resume();
+
+
+        button.textContent =
+            "🔊";
+
+
+        button.classList.add(
+            "music-active"
+        );
+
+
+        musicTimer =
+            setInterval(
+                musicTick,
+                833
+            );
+
+
+        musicTick();
+
+    } else {
+
+        button.textContent =
+            "🔇";
+
+
+        button.classList.remove(
+            "music-active"
+        );
+
+
+        clearInterval(
+            musicTimer
+        );
+
+
+        if(audioContext) {
+
+            await audioContext.suspend();
+
+        }
+
+    }
+
+};
+
+
+/* ==================================================
+   START
+================================================== */
+
+updateCart();
+
+</script>
+
+</body>
+</html>
